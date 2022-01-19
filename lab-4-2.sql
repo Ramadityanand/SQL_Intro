@@ -26,8 +26,8 @@
 
 
 SELECT players.first_name, players.last_name
-FROM players 
-INNER JOIN teams ON stats.team_id = teams.name
-INNER JOIN stats ON players.id = stats.player_id
-WHERE teams.name = "Chicago Cubs"
-AND teams.year = 2020;
+FROM stats 
+INNER JOIN players ON players.id = stats.player_id
+INNER JOIN teams ON stats.team_id = teams.id
+WHERE teams.year = 2020
+AND teams.name = "Chicago Cubs";
